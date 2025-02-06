@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "tailus.io"
+        hostname: "external-content.duckduckgo.com"
       }
     ]
   }

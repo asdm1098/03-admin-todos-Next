@@ -31,7 +31,7 @@ export const Sidebar = () => {
                 {/* TODO: Next/Link hacia dashboard */}
                 <Link href="#" title="home">
                     <Image 
-                        src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg"
+                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.27.ua%2Fsc--media--prod%2Fdefault%2Fd2%2F2c%2F06%2Fd22c06bc-6281-4f87-b153-f5033bfe2bb3.jpg&f=1&nofb=1&ipt=eb6f18f3e31542ca43a2f0f346f24ec741878746825516f3d220391962d8de4b&ipo=images"
                         className="w-32" 
                         alt="tailus logo"
                         width={50}
@@ -42,7 +42,7 @@ export const Sidebar = () => {
     
               <div className="mt-8 text-center">
                 <Image 
-                    src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp"
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FFrlTB2SaQAM5Ahs.jpg%3Alarge&f=1&nofb=1&ipt=85d5341d0c965867d006a4705a84206542e769eb33021079c6adfa7b813e4ede&ipo=images"
                     alt="" 
                     className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
                     width={150}
