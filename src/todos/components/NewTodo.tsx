@@ -5,7 +5,7 @@ import { IoTrashOutline } from 'react-icons/io5';
 
 // import * as todosApi from '@/todos/helpers/todos';
 import { useRouter } from 'next/navigation';
-import { addTodo } from '../actions/todo-actions';
+import { addTodo, deleteCompleted } from '../actions/todo-actions';
 
 
 export const NewTodo = () => {
@@ -24,10 +24,10 @@ export const NewTodo = () => {
     // router.refresh();
   }
   
-  const deleteCompleted = async() => {
+  // const deleteCompleted = async() => {
     // await todosApi.deleteCompletedTodo();
     // router.refresh();
-  }
+  // }
 
 
 
