@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiLogout } from "react-icons/ci";
 import { SidebarItem } from "./SidebarItem";
-import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from "react-icons/io5";
+import { IoCalendarOutline, IoCheckboxOutline, IoCodeWorking, IoListOutline } from "react-icons/io5";
 
 
 const menuItems = [
@@ -21,6 +21,11 @@ const menuItems = [
     title: 'Server Actions',
     path: '/dashboard/server-todos'
   },
+  {
+    icon: <IoCodeWorking />,
+    title: 'Cookies',
+    path: '/dashboard/cookies'
+  }
 ]
 
 export const Sidebar = () => {
@@ -48,7 +53,7 @@ export const Sidebar = () => {
                     width={150}
                     height={150}
                 />
-                  <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Cynthia J. Watts</h5>
+                  <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">StivenProdev</h5>
                   <span className="hidden text-gray-400 lg:block">Admin</span>
               </div>
     
