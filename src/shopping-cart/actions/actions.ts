@@ -1,0 +1,41 @@
+// 'use client'
+
+import { getCookie, hasCookie, setCookie } from "cookies-next";
+
+/* 
+cookie: cart
+{
+    'uuid-123-1': 3,
+    'uuid-123-2': 2,
+    'uuid-123-3': 1
+
+}
+
+*/
+
+export const getCookieCart = (): { [id: string]: number } => {
+
+    if ( hasCookie('cart') ) {
+        const cookieCart = JSON.parse( getCookie('cart') as string ?? '{}' );
+        return cookieCart;
+    }
+
+    return {};
+}
+
+export const addProductToCart = ( id: string ) => {
+    const cookieCart = getCookieCart();
+
+    if ( cookieCart[id] ) {
+        cookieCart[id] = cookieCart[id] + 1;
+    } else {
+        cookieCart[id] = 1;
+    }
+
+    setCookie('cart', JSON.stringify(cookieCart));
+    
+}
+
+export const RemoveProductFormCart = ( id: string ) => {
+    
+}
