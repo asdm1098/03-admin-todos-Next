@@ -9,10 +9,10 @@ const getTotalCount = ( cart: { [id: string]: number }): number => {
     })
     return items;
 }
-export const TopMenu = () => {
+export const TopMenu = async() => {
 
     const cookieStore = cookies();
-    const cart = JSON.parse(cookieStore.get('cart')?.value ?? '{}');
+    const cart = JSON.parse((await cookieStore).get('cart')?.value ?? '{}');
 
     const totalItems = getTotalCount(cart);
    

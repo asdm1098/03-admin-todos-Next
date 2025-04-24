@@ -37,5 +37,8 @@ export const addProductToCart = ( id: string ) => {
 }
 
 export const RemoveProductFormCart = ( id: string ) => {
-    
+    const cookieCart = getCookieCart();
+    delete cookieCart[id];
+    setCookie('cart', JSON.stringify(cookieCart));
+
 }
