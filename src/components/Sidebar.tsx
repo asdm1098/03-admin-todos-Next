@@ -44,7 +44,7 @@ export const Sidebar = async () => {
     : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FFrlTB2SaQAM5Ahs.jpg%3Alarge&f=1&nofb=1&ipt=85d5341d0c965867d006a4705a84206542e769eb33021079c6adfa7b813e4ede&ipo=images'
 
   const userName = session?.user?.name ?? 'No Name';
-  //TODO: const userRole = session?.user?.role
+  const userRoles = session?.user?.roles ?? ['no-role'];
 
   return (
     <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -71,7 +71,11 @@ export const Sidebar = async () => {
             height={150}
           />
           <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{userName}</h5>
-          <span className="hidden text-gray-400 lg:block">Admin</span>
+          <span className="hidden text-gray-400 lg:block capitalize">
+            {
+              userRoles.join(',')
+            }
+          </span>
         </div>
 
         <ul className="space-y-2 tracking-wide mt-8">

@@ -22,8 +22,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: token.email ?? 'no-email',
         },
       })
+
+      if ( dbUser?.isActive === false ) {
+        throw Error('User is not active')
+      };
+
       token.roles = dbUser?.roles ?? ['no-roles'];
-      token.id = dbUser?.id ?? ['no-uuid'];
+      token.id = dbUser?.id ?? 'no-uuid';
 
       return token;
     },
