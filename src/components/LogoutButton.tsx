@@ -6,7 +6,7 @@ import { auth, signIn, signOut } from "../../auth";
 export const LogoutButton = async () => {
 
     const session = await auth();
-    console.log('session: ', session);
+    // console.log('session: ', session);
 
     if (!session) {
         return (
