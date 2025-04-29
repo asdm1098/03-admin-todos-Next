@@ -1,11 +1,39 @@
+import { signInEmailPassword } from "@/auth"
 import prisma from "@/lib/prima"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import NextAuth from "next-auth"
+import Credentials from "next-auth/providers/credentials"
 import Google from "next-auth/providers/google"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  providers: [Google],
+  providers: [
+    Google, 
+    Credentials({
+      credentials: {
+        email: {
+          type: "email",
+          label: "Email",
+          placeholder: "johndoe@gmail.com",
+        },
+        password: {
+          type: "password",
+          label: "Password",
+          placeholder: "*****",
+        },
+      },
+      authorize: async (credentials) => {
+        const user = await signInEmailPassword(credentials.email as string, credentials.password as string )
+ 
+        if (!user) {
+        
+          throw new Error("Invalid credentials.")
+        }
+ 
+        return user
+      },
+    })
+  ],
   session: {
     strategy: "jwt"
   },
