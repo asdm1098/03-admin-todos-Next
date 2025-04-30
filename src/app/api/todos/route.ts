@@ -42,9 +42,10 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) { 
-
+    const user = await getUserSessionServer();
+    if ( !user ) return Response.json({ message: 'Not authenticated' }, { status: 401 } );
     try {
-        await prisma.todo.deleteMany({ where: { complete: true }});
+        await prisma.todo.deleteMany({ where: { complete: true, userId: user.id } });
         return Response.json('Borrados');
         
     } catch (error) {
