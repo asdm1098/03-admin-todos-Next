@@ -1,3 +1,4 @@
+import { getUserSessionServer } from "@/auth";
 import prisma from "@/lib/prima";
 import * as yup from "yup";
 
@@ -26,10 +27,12 @@ const postSchema = yup.object({
 });
 export async function POST(request: Request) { 
 
+    const user = await getUserSessionServer();
+    if ( !user ) return Response.json({ message: 'Not authenticated' }, { status: 401 } );
     try {
         const { description, complete } = await postSchema.validate( await request.json() );
     
-        const todo = await prisma.todo.create({ data: { description, complete } });
+        const todo = await prisma.todo.create({ data: { description, complete, userId: user.id } });
     
         return Response.json(todo);
         
